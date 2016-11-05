@@ -1,28 +1,87 @@
-"use strict";
+'use strict';
 
-let Robot = () => {
-this.type = null;
-this.name = null;
-this.baseDamage = 10;
+var Robot = (function(CreateRobot){
+
+
+CreateRobot.BaseRobot = function() {
+  this.life = Math.round((Math.random() * 20) + 90);
+  this.baseDamage = Math.round((Math.random()*20) + 10);
 };
 
-let bipedal = () => {
-  this.type = bipedal;
-  this.name = 'Zeus';
+CreateRobot.ArticulatedRobot = function() {
+  this.joints = 'mobile';
+};
+CreateRobot.ArticulatedRobot.prototype = new CreateRobot.BaseRobot();
+
+CreateRobot.FirstArticulatedRobot = function(){
+  this.extraLife = 10;
+  this.extraDamage = 5;
+  this.totalLife = this.life + this.extraLife;
+  this.totalDamage = this.baseDamage + this.extraDamage;
 };
 
-bipedal.prototype = new Robot();
+CreateRobot.FirstArticulatedRobot.prototype = new CreateRobot.ArticulatedRobot();
 
-let cylindrical = () => {
-  this.type = cylindrical;
-  this.name = 'Second Zeus';
+var test = new CreateRobot.FirstArticulatedRobot();
+console.log("test", test);
+
+CreateRobot.SecondArticulatedRobot = function(){
+  this.extraLife = 12;
+  this.extraDamage = 4;
+  this.totalLife = this.life + this.extraLife;
+  this.totalDamage = this.baseDamage + this.extraDamage;
 };
 
-cylindrical.prototype = new Robot();
+CreateRobot.SecondArticulatedRobot.prototype = new CreateRobot.ArticulatedRobot();
 
-let delta = () => {
-  this.type = delta;
-  this.name = 'Third Zeus';
+CreateRobot.CartesianRobot = function() {
+  this.joints = 'stagnant';
 };
 
-delta.prototype = new Robot();
+CreateRobot.CartesianRobot.prototype = new CreateRobot.BaseRobot();
+
+CreateRobot.FirstCartesianRobot = function(){
+  this.extraLife = 6;
+  this.extraDamage = 24;
+  this.totalLife = this.life + this.extraLife;
+  this.totalDamage = this.baseDamage + this.extraDamage;
+};
+
+CreateRobot.FirstCartesianRobot.prototype = new CreateRobot.CartesianRobot();
+
+CreateRobot.SecondCartesianRobot = function(){
+  this.extraLife = 3;
+  this.extraDamage =3;
+  this.totalLife = this.life + this.extraLife;
+  this.totalDamage = this.baseDamage + this.extraDamage;
+};
+
+CreateRobot.SecondCartesianRobot.prototype = new CreateRobot.CartesianRobot();
+
+CreateRobot.CylindricalRobot = function() {
+  this.joints = 'round';
+};
+
+CreateRobot.CylindricalRobot.prototype = new CreateRobot.BaseRobot();
+
+CreateRobot.FirstCylindricalRobot = function(){
+  this.extraLife = 5;
+  this.extraDamage = 6;
+  this.totalLife = this.life + this.extraLife;
+  this.totalDamage = this.baseDamage + this.extraDamage;
+};
+
+CreateRobot.FirstCylindricalRobot.prototype = new CreateRobot.CylindricalRobot();
+
+CreateRobot.SecondCylindricalRobot = function(){
+  this.extraLife = 3;
+  this.extraDamage = 7;
+  this.totalLife = this.life + this.extraLife;
+  this.totalDamage = this.baseDamage + this.extraDamage;
+};
+
+CreateRobot.SecondCylindricalRobot.prototype = new CreateRobot.CylindricalRobot();
+
+return CreateRobot;
+
+})(Robot || {});

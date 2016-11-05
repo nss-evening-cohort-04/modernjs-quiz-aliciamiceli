@@ -1,0 +1,23 @@
+#leftOutput {
+  display: inline-block;
+  border: 1px solid black;
+  height: 200px;
+}
+
+#rightOutput {
+  display: inline-block;
+  border: 1px solid black;
+  height: 200px;
+}
+
+#battleText {
+  display: inline-block;
+  border: 1px solid black;
+  height: 200px;
+}
+
+
+
+#submit {
+  margin-top: 100px;
+}

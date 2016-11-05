@@ -2,12 +2,49 @@
 <html>
 <head>
   <title>Modern JS Quiz</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css" href="main.css"/>
 </head>
 <body>
+<!-- <input id="firstRobot" type="text" placeholder="first robot">
+<input id="secondRobot" type="text" placeholder="second robot">
+ -->
+ <div class="row">
+<div id="leftOutput" class="col-md-4">
+Name your robot:
+<input type="text" placeholder="First Robot" id="player-setup">
+<div class="row">
+<button id="firstArticulatedRobotPlayer" class="btn btn-default">First Articulated Robot</button>
+<button id="firstCartesianRobotPlayer" class="btn btn-default">First Cartesian Robot</button>
+<button id="firstCylindricalRobotPlayer" class="btn btn-default">First Cylindrical Robot</button>
+<button id="secondArticulatedRobotPlayer" class="btn btn-default">Second Articulated Robot</button>
+<button id="secondCartesianRobotPlayer" class="btn btn-default">Second Cartesian Robot</button>
+<button id="secondCylindricalRobotPlayer" class="btn btn-default">Second Cylindrical Robot</button>
+</div>
+</div>
+<div id="battleText" class="col-md-4">
+</div>
 
-<div id="output"></div>
+<div id="rightOutput" class= "col-md-4">
+Name your opponent:
+<input type="text" placeholder="Enemy" id="enemy-setup">
+<div class="row">
+<button id="firstArticulatedRobotEnemy" class="btn btn-default">First Articulated Robot</button>
+<button id="firstCartesianRobotEnemy" class="btn btn-default">First Cartesian Robot</button>
+<button id="firstCylindricalRobotEnemy" class="btn btn-default">First Cylindrical Robot</button>
+<button id="secondArticulatedRobotEnemy" class="btn btn-default">Second Articulated Robot</button>
+<button id="secondCartesianRobotEnemy" class="btn btn-default">Second Cartesian Robot</button>
+<button id="secondCylindricalRobotEnemy" class="btn btn-default">Second Cylindrical Robot</button>
+</div>
+</div>
+</div>
 
+<button id="submit" class="btn col-md-2 col-md-offset-5">Get Ready to Rumble!</button>
 <script src="/lib/bower_components/jquery/dist/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 <script src="/javascripts/robot.js" type="text/javascript" charset="utf-8" async defer></script>
+<script src="/javascripts/battleground.js" type="text/javascript" charset="utf-8" async defer></script>
+<script src="/javascripts/eventListeners.js" type="text/javascript" charset="utf-8" async defer></script>
+<script src="/javascripts/DOMhandler.js" type="text/javascript" charset="utf-8" async defer></script>
 </body>
 </html>
