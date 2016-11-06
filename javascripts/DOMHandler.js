@@ -3,6 +3,8 @@
 var robotType;
 var playerOne;
 
+$('#attack').hide();
+
 function grabRobotType() {
   if ($('#firstArticulatedRobotPlayer').hasClass('selected')) {
     robotType = 'First Articulated Robot';
@@ -55,7 +57,7 @@ function grabEnemyType() {
 
 function parseToDomFunction() {
 let parseToDom = `<div>`;
-   parseToDom += `${$('#player-setup').val()} is a ${robotType}`;
+   parseToDom += `<h4>${$('#player-setup').val()} is a ${robotType}</h4>`;
 parseToDom +=`</div>`;
 
 $('#leftOutput').append(parseToDom);
@@ -64,7 +66,7 @@ $('#leftOutput').append(parseToDom);
 
 function secondParseFunction() {
   let secondParseToDom = `<div>`;
-    secondParseToDom += `${$('#enemy-setup').val()} is a ${enemyType}`;
+    secondParseToDom += `<h4>${$('#enemy-setup').val()} is a ${enemyType}</h4>`;
   secondParseToDom += `</div>`;
 
 $('#rightOutput').append(secondParseToDom);
@@ -82,29 +84,53 @@ $('#rightOutput').append(secondParseToDom);
     secondParseFunction();
 console.log("player one", playerOne);
 console.log("public enemy", publicEnemy);
-testBattleGroundFunction();
+$('#attack').show();
+$('#submit').hide();
   });
 
+$('#attack').on('click', battleGroundFunction);
+console.log("public enemy", publicEnemy);
 
-function testBattleGroundFunction () {
-
-for (let i=0; i < 5; i ++) {
+function battleGroundFunction(){
 if (publicEnemy.totalLife > 0) {
   goodGuyAttackFunction();
-} else if (publicEnemy.totalLife <= 0) {
-  console.log('good guy wins!');
-  break;
 }
 
 if (playerOne.totalLife > 0) {
   enemyAttackFunction();
-} else if (playerOne.totalLife <= 0){
-  console.log("bad guy wins!");
-  break;
+
+
+
+
+if (publicEnemy.totalLife > 0 && playerOne.totalLife > 0){
+$('#battleText').html('');
+
+let parseBattleToDom = `<div>`;
+parseBattleToDom += `${$('#player-setup').val()} attacks ${$('#enemy-setup').val()}`;
+parseBattleToDom +=` with bare hands for ${playerOne.totalDamage} points of damage!`;
+parseBattleToDom +=`<br>${$('#enemy-setup').val()} now has ${publicEnemy.totalLife} life left.`;
+parseBattleToDom += `<br><br><br>`;
+parseBattleToDom += `${$('#enemy-setup').val()} attacks ${$('#player-setup').val()}`;
+parseBattleToDom += ` with bare hands for ${publicEnemy.totalDamage} points of damage!`;
+parseBattleToDom += `<br>${$('#player-setup').val()} now has ${playerOne.totalLife} life left.`;
+parseBattleToDom += `</div>`;
+$('#battleText').append(parseBattleToDom);
+
+} else if (playerOne.totalLife <= 0) {
+  let parseBattleToDomPlayerOne = `After one more attack, ${$('#player-setup').val()} has a life value of ${playerOne.totalLife}.`;
+  parseBattleToDomPlayerOne += `<h4><br>${$('#enemy-setup').val()} wins!</h4>`;
+  $('#battleText').append(parseBattleToDomPlayerOne);
+}
+if (publicEnemy.totalLife <= 0) {
+  let parseBattleToDomPublicEnemy = `After one more attack, ${$('#enemy-setup').val()} has a life value of ${publicEnemy.totalLife}.`;
+  parseBattleToDomPublicEnemy = `<h4>${$('#player-setup').val()} wins!</h4>`;
+  $('#battleText').append(parseBattleToDomPublicEnemy);
+}
+
+
 }
 }
 
-}
 
 function enemyAttackFunction() {
   playerOne.totalLife -= publicEnemy.totalDamage;
