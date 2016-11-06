@@ -2,7 +2,6 @@
 
 var Robot = (function(eventListeners){
 
-
 $('#firstArticulatedRobotPlayer').on('click', function(){
   this.classList.toggle('selected');
 });
@@ -26,8 +25,6 @@ $('#firstCylindricalRobotPlayer').on('click', function(){
 $('#secondCylindricalRobotPlayer').on('click', function(){
   this.classList.toggle('selected');
 });
-
-//breakpoint in code so i know what i'm looking at
 
 $('#firstArticulatedRobotEnemy').on('click', function(){
   this.classList.toggle('selected');

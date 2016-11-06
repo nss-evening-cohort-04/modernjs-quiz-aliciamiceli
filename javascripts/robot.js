@@ -2,7 +2,6 @@
 
 var Robot = (function(CreateRobot){
 
-
 CreateRobot.BaseRobot = function() {
   this.life = Math.round((Math.random() * 20) + 90);
   this.baseDamage = Math.round((Math.random()*20) + 10);
