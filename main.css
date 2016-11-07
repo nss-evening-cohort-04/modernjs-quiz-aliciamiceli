@@ -1,0 +1,26 @@
+#leftOutput {
+  display: inline-block;
+  border: 1px solid black;
+  height: 300px;
+}
+
+#rightOutput {
+  display: inline-block;
+  border: 1px solid black;
+  height: 300px;
+}
+
+#battleText {
+  display: inline-block;
+  border: 1px solid black;
+  height: 300px;
+}
+
+
+#submit {
+  margin-top: 100px;
+}
+
+#attack {
+  margin-top: 100px ;
+}
